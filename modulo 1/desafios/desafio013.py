@@ -1,6 +1,6 @@
 salario = float(input('Informe seu salário: R$ '))
 porcentagemReajuste = 15
-reajuste = (salario * porcentagemReajuste) / 100
-valorFinal = salario + reajuste
+reajuste = salario + ((salario * porcentagemReajuste) / 100)
 
-print(f'Seu salário atual é: R${salario}\nCom reajuste de {porcentagemReajuste}%\nO seu novo salário será: R${valorFinal}')
+
+print(f'Seu salário atual é: R${salario:.2f}\nCom reajuste de {porcentagemReajuste}%\nO seu novo salário será: R${reajuste:.2f}')
