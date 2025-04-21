@@ -1,7 +1,6 @@
 vel = float(input('Digite a velocidade do carro: '))
 
-
-if vel >= 80:
+if vel > 80:
     vLimite = vel - 80
     vMulta = 7 * vLimite
     

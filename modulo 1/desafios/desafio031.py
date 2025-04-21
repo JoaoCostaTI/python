@@ -1,5 +1,4 @@
 distancia = float(input('Qual será a distancia da viagem? '))
-preco = 0
 
 if distancia <= 200:
     preco = distancia * 0.5
