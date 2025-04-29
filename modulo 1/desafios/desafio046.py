@@ -1,7 +1,7 @@
-import time 
+import time
 
-print('CONTAGEM REGRESSIVA!!!')
-for c in range(10 , -1, -1):
+print('Contagem Regressiva!!!')
+for c in range(11, 0, -1):
     print(c)
-    time.sleep(1)
-print('FELIZ ANO NOVO! ') 
+    time.sleep(0.2)
+print('Feliz ano novo! ')
