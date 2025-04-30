@@ -7,5 +7,5 @@ for c in range(5):
         maiorPeso = peso
     if peso < menorPeso:
         menorPeso = peso
-print(f'Maior peso = {maiorPeso}')
-print(f'Maior peso = {menorPeso}')
+print(f'Maior peso = {maiorPeso}Kg')
+print(f'Maior peso = {menorPeso}Kg')
