@@ -1,27 +1,21 @@
-# 1. Ler quantos termos mostrar
-quantidade = int(input('Quantos termos você quer mostrar? '))
+print('*Sequencia de Fibonacci*')
 
-# 2. Inicializar os dois primeiros termos
-anterior = 0
-atual = 1
+n = int(input('Quantos termos? '))
 
-# 3. Contador para controlar os termos mostrados
-contador = 0
+t1 = 0
+t2 = 1
 
-# 4. Loop para exibir a sequência
-while contador < quantidade:
-    # → Aqui você imprime o termo atual
-    
-    print(anterior)
+print(t1, end=" => ")
+print(t2, end=" => ")
 
-    # → Aqui você calcula o próximo termo (anterior + atual)
-    proximoTermo = anterior + atual
+contador = 3
 
-    # → Atualiza os valores:
-    anterior = atual
-    #    - anterior vira atual
-    atual = proximoTermo
-    #    - atual vira próximo
+while contador <= n:
+    t3 = t1 + t2
+    print(t3, end=" => ")
 
-    # → Incrementa o contador
+    t1 = t2
+    t2 = t3
+
     contador += 1
+print(' FIM')
