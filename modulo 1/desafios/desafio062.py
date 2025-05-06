@@ -1,24 +1,18 @@
 primeiroTermo = int(input('Digite o primeiro termo: '))
 razao = int(input('Digite a razão: '))
+termo = primeiroTermo
+cont = 1
+total = 0
+mais = 10
 
-termos = primeiroTermo
 
-contador = int(input('Quantos termos deseja mostrar? '))
-contadorInicial = contador
+while mais != 0:
+    total += mais
+    while cont <= total:
+        print(termo)
+        termo += razao
+        cont += 1
+    print('Pausa')
 
-while contador != 0:
-    if contador == contadorInicial:
-        print(primeiroTermo)
-    else: 
-        termos += razao
-        print(termos)
-
-    contador -= 1
-
-    op = int(input('Deseja continuar a contagem? '))
-    if op == 1:
-        contador = int(input('Quantos termos deseja mostrar? '))
-    termos += razao
-    print(termos)
-
-    contador -= 1
+    mais = int(input('Quantos termos você quer mostrar? '))
+print('FIM')
