@@ -11,11 +11,13 @@ print(t2, end=" => ")
 contador = 3
 
 while contador <= n:
-    t3 = t1 + t2
+    t3 = t2 + t1
+
     print(t3, end=" => ")
+
+    contador += 1
 
     t1 = t2
     t2 = t3
 
-    contador += 1
 print(' FIM')
