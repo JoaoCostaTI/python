@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro Mensal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-2px);
+        }
+
+        input,
+        button,
+        select {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background-color: #2a2a2a;
+            color: #ffffff;
+            font-size: 16px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            background-color: #333;
+            box-shadow: 0 0 0 2px #3f51b5;
+        }
+
+
+        button {
+            width: auto;
+            /* ou um valor fixo, como 200px */
+            padding: 12px 24px;
+            display: block;
+            margin: 15px auto 0 auto;
+            background-color: #3f51b5;
+            color: white;
+            font-weight: bold;
+            border-radius: 12px;
+            border: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+
+
+        button:hover {
+            background-color: #5c6bc0;
+            box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3);
+            cursor: pointer;
+        }
+
+        .lista {
+            margin-top: 25px;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-radius: 12px;
+        }
+
+        .saldo {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #90ee90;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registro de Gastos e Ganhos</h2>
+        <select id="mes">
+            <option value="Janeiro">Janeiro</option>
+            <option value="Fevereiro">Fevereiro</option>
+            <option value="Março">Março</option>
+            <option value="Abril">Abril</option>
+            <option value="Maio">Maio</option>
+            <option value="Junho">Junho</option>
+            <option value="Julho">Julho</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Setembro">Setembro</option>
+            <option value="Outubro">Outubro</option>
+            <option value="Novembro">Novembro</option>
+            <option value="Dezembro">Dezembro</option>
+        </select>
+        <input type="text" id="descricao" placeholder="Descrição">
+        <input type="number" id="valor" placeholder="Valor">
+        <select id="tipo">
+            <option value="despesa">Despesa</option>
+            <option value="ganho">Ganho</option>
+        </select>
+        <button onclick="registrar()">Registrar</button>
+        <input type="file" id="importarArquivo" onchange="carregarArquivoJSON()">
+        <button onclick="baixarDados()">Baixar Registros</button>
+        <h3>Selecione um mês para visualizar:</h3>
+        <select id="mesVisualizar" onchange="atualizarLista()">
+            <option value="Janeiro">Janeiro</option>
+            <option value="Fevereiro">Fevereiro</option>
+            <option value="Março">Março</option>
+            <option value="Abril">Abril</option>
+            <option value="Maio">Maio</option>
+            <option value="Junho">Junho</option>
+            <option value="Julho">Julho</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Setembro">Setembro</option>
+            <option value="Outubro">Outubro</option>
+            <option value="Novembro">Novembro</option>
+            <option value="Dezembro">Dezembro</option>
+        </select>
+        <div class="lista" id="lista"></div>
+        <div class="saldo" id="saldo"></div>
+    </div>
+
+    <script>
+        let registros = {}; // Inicializa os registros
+
+        function registrar() {
+            let mes = document.getElementById("mes").value;
+            let descricao = document.getElementById("descricao").value;
+            let valor = parseFloat(document.getElementById("valor").value);
+            let tipo = document.getElementById("tipo").value;
+
+            if (descricao && !isNaN(valor)) {
+                if (!registros[mes]) registros[mes] = [];
+                registros[mes].push({ descricao, valor, tipo });
+
+                atualizarLista();
+            }
+        }
+
+        function atualizarLista() {
+            let mesSelecionado = document.getElementById("mesVisualizar").value;
+            let lista = document.getElementById("lista");
+            let saldoFinal = 0;
+            lista.innerHTML = "";
+
+            if (registros[mesSelecionado]) {
+                registros[mesSelecionado].forEach((registro, index) => {
+                    let item = document.createElement("div");
+                    item.innerHTML = `${registro.descricao} - R$ ${registro.valor.toFixed(2)} (${registro.tipo}) 
+                              <button onclick="excluirRegistro('${mesSelecionado}', ${index})">Excluir</button>`;
+                    lista.appendChild(item);
+                    saldoFinal += registro.tipo === "ganho" ? registro.valor : -registro.valor;
+                });
+            }
+
+            document.getElementById("saldo").innerText = `Saldo Final de ${mesSelecionado}: R$ ${saldoFinal.toFixed(2)}`;
+        }
+
+        function excluirRegistro(mes, index) {
+            if (registros[mes]) {
+                registros[mes].splice(index, 1);
+                atualizarLista();
+            }
+        }
+
+        // 🔹 **Função para baixar os dados como arquivo JSON**
+        function baixarDados() {
+            let dados = JSON.stringify(registros, null, 2); // Formata JSON com indentação
+            let blob = new Blob([dados], { type: "application/json" });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "registros.json";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        function carregarArquivoJSON() {
+            let input = document.getElementById("importarArquivo");
+            let file = input.files[0];
+
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    registros = JSON.parse(event.target.result);
+                    atualizarLista();
+                };
+                reader.readAsText(file);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
