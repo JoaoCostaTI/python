@@ -9,7 +9,7 @@ menor = 51
 
 #Gerando os numeros 5 vezes
 while True:
-    elemento = randint(0,50)
+    elemento = randint(0,10)
     tupla += (elemento,)
 
     contador += 1

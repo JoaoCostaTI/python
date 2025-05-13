@@ -1,7 +1,7 @@
-c = 1
+palavra = "BATATA"
+vogais = "AEIOU"
 
-while True:
-    print(c)
-    c+=1
-    if c == 100:
-        break
+for letra in palavra:
+    if letra in vogais:
+        print(letra)
+
