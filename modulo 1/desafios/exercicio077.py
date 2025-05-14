@@ -1,20 +1,20 @@
-palavras = ('Feijao', 'Arroz', 'Batata', 'Cenoura', 'Pera', 'Aprender')
+palavras = ('aprender', 'programar', 'linguagem', 'python', 'curso', 'gratis', 'estudar', 'praticar', 'trabalhar', 'mercado', 'programador', 'futuro')
+
+vogais = 'aeiou'
+
 palavra = ""
 
-vogais = "AEIOUaeiou"
-
+#Percorrendo cada palavra
 for c in range(0, len(palavras)):
-    #Separando a palavra em uma única string
+    
+    #Atribuindo cada palavra da tupla a uma string separada
     palavra = palavras[c]
 
-    #Percorrendo a string e verificando se tem vogais:
-    print(f'Na palavra {palavra.upper()}',end=" temos " )
-    for letra in palavra:
-        if letra in vogais:
-            print(letra.lower(), end=" ")
-    print(end="\n")
-        
+    print(f'\nNa palavra {palavra.upper()} temos:', end=" ")
     
-
-        
+    #Percorrendo para capturar apenas as vogais
+    for i in palavra:
+        if i in vogais:
+            print(i, end=" ")
+    
 

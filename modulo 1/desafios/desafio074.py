@@ -12,15 +12,15 @@ while True:
     elemento = randint(0,10)
     tupla += (elemento,)
 
-    contador += 1
-    if contador == 5:
-        break
-
     #Verificando o maior elemento: 
     if elemento > maior:
         maior = elemento
     if elemento < menor:
         menor = elemento
+
+    contador += 1
+    if contador == 5:
+        break
 
 #Mostrando os 5 numeros gerados: 
 print("Os elementos da tupla são: ")
