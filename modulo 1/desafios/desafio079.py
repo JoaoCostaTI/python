@@ -1,23 +1,20 @@
-valores = list()
-
+valores = []
 op = ''
 
 while True:
     n = int(input('Digite um numero: '))
-    
-    #Adicionando o valor na lista APENAS Se ele não estiver dentro da lista
+
     if n not in valores:
-        print('Valor adicionado com Sucesso...')
+        print('Valor adicionado com sucesso...')
         valores.append(n)
     else:
-        print(f'Valor Duplicado, não vou adicionar...')
+        print('Valor já existe, não será adicionado...')
     
-    #Opção de deseja continuar
-    op = str(input('Deseja continuar?[S/N] ')).upper().strip()
+    op = str(input('Deseja continuar? [S/N] ')).upper().strip()
 
     if op == 'N':
         break
 
+#Ordenando a lista
 valores.sort()
-
-print(f'Todos os valores da lista foram: {valores}')
+print(f'Lista completa ordenada {valores}')

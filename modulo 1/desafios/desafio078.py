@@ -1,40 +1,31 @@
 numeros = []
 
 maior = 0
-menor = 999999999
+menor = 0
 
-listaIndiceMaior = []
-listaIndiceMenor = []
-
-
-for c in range(0,5):
-    #Inserindo os valores na lista
-    n = int(input(f'Digite o numero da posição {c}º: '))
+for c in range(5):
+    #Inserindo os numeros na lista
+    n = int(input(f'Digite o valor para posição [{c}]: '))
     numeros.append(n)
+    if c == 0:
+        maior = menor = numeros[c]
+    else:
+        if numeros[c] > maior:
+            maior = numeros[c]
+        if numeros[c] < menor:
+            menor = numeros[c]
 
-    listaMaior = numeros[:]
-    listaMenor = numeros[:]
 
-for i, v in enumerate(numeros):
-    print(f'Indice: {i}, Número: {v}' )
+print(f'Você digitou os valores: {numeros}')
 
-    #Verificando qual o maior valor:
-    if v >= maior:
-        maior = v
-        
-        listaMaior.sort(reverse=True)
-        if maior == listaMaior[0]:
-            listaIndiceMaior.append(i)
+print(f'O maior valor digitado é: {maior}, nas posições: ', end="")
+for indice, valor in enumerate(numeros):
+    if valor == maior:
+        print(f'{indice}...', end="")
+print()
     
-    #verificando qual o menor valor: 
-    if v <= menor:
-        menor = v
-        
-        listaMenor.sort()
-        if menor == listaMenor[0]:
-            listaIndiceMenor.append(i)
-  
-print(f'Os valores digitados foram: {numeros}')
-
-print(f'O maior valor digitado foi: {maior} na posição: {listaIndiceMaior}')
-print(f'O menor valor digitado foi: {menor} na posição: {listaIndiceMenor}')
+print(f'O menor valor digitado é: {menor} nas posições: ', end="" )
+for indice, valor in enumerate(numeros):
+    if valor == menor:
+        print(f'{indice}...', end="")
+print()
