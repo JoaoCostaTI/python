@@ -1,31 +1,31 @@
 numeros = []
 
-maior = 0
-menor = 0
-
 for c in range(5):
-    #Inserindo os numeros na lista
-    n = int(input(f'Digite o valor para posição [{c}]: '))
+    #Lendo os numeros
+    n = int(input('Digite um numero: '))
+
+    #Guardando os numeros
     numeros.append(n)
+
+    #Verificando qual é o maior e o menor
     if c == 0:
-        maior = menor = numeros[c]
-    else:
-        if numeros[c] > maior:
-            maior = numeros[c]
-        if numeros[c] < menor:
-            menor = numeros[c]
+        maior = menor = n
+    if n > maior:
+        maior = n
+    if n < menor:
+        menor = n
+#Mostrando a lista completa
+print(f'Lista completa: {numeros}')
 
-
-print(f'Você digitou os valores: {numeros}')
-
-print(f'O maior valor digitado é: {maior}, nas posições: ', end="")
-for indice, valor in enumerate(numeros):
-    if valor == maior:
+#Mostrando apenas os INDICES do NUMERO MAIOR
+print(f'Maior numero = {maior}', end=" nos indices: ")
+for indice, valores in enumerate(numeros):
+    if valores == maior:
         print(f'{indice}...', end="")
-print()
-    
-print(f'O menor valor digitado é: {menor} nas posições: ', end="" )
-for indice, valor in enumerate(numeros):
-    if valor == menor:
+
+#Mostrando os INDICES do NUMERO MENOR
+print(f'\nMenor numero = {menor}', end=" nos indices: ")
+for indice, valores in enumerate(numeros):
+    if valores == menor:
         print(f'{indice}...', end="")
-print()
+ 
