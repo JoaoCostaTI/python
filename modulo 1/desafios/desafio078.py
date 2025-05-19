@@ -2,7 +2,7 @@ numeros = []
 
 for c in range(5):
     #Lendo os numeros
-    n = int(input('Digite um numero: '))
+    n = int(input(f'Digite um valor para a posição [{c}]: '))
 
     #Guardando os numeros
     numeros.append(n)
@@ -28,4 +28,5 @@ print(f'\nMenor numero = {menor}', end=" nos indices: ")
 for indice, valores in enumerate(numeros):
     if valores == menor:
         print(f'{indice}...', end="")
+print()
  
