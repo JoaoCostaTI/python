@@ -21,7 +21,7 @@ while True:
 
 
 #Mostrando quantidade de numeros digitados
-print(f'Foram digitados {qtdNumeros} numeros')
+print(f'Foram digitados {qtdNumeros} elementos')
 
 #Mostrando a lista em forma decrescente
 numeros.sort(reverse=True)
