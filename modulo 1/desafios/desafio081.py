@@ -1,6 +1,5 @@
 numeros = []
 
-qtdNumeros = 0
 op = ''
 
 while True:
@@ -10,9 +9,6 @@ while True:
     #Adicionando os numeros na lista:
     numeros.append(n)
 
-    #Contando quantidade de numeros digitados
-    qtdNumeros += 1
-
     #Verificando se deseja continuar:
     op = str(input('Deseja continuar? [S/N]')).upper().strip()
     if op == 'N':
@@ -21,7 +17,7 @@ while True:
 
 
 #Mostrando quantidade de numeros digitados
-print(f'Foram digitados {qtdNumeros} elementos')
+print(f'Foram digitados {len(numeros)} elementos')
 
 #Mostrando a lista em forma decrescente
 numeros.sort(reverse=True)

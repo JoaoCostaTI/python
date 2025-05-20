@@ -2,8 +2,6 @@ numeros = []
 listaPar = []
 listaImpar = []
 
-op = ''
-
 while True:
     #Entrada dos dados
     n = int(input('Digite um numero: '))
@@ -25,6 +23,7 @@ for c in numeros:
         listaImpar.append(c)
 
 #Resultados
+print("-=" * 30)
 print(f'Lista completa: {numeros}')
 print(f'Lista somente com PARES: {listaPar}')
 print(f'Lista somente com IMPARES: {listaImpar}')
