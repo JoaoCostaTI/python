@@ -1,7 +1,7 @@
-palavra = "BATATA"
-vogais = "AEIOU"
+dados = []
 
-for letra in palavra:
-    if letra in vogais:
-        print(letra)
+dados.append('Joao')
+dados.append(32)
+dados.append('Costa')
 
+print(dados)
