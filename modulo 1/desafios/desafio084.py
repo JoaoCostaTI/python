@@ -1,65 +1,54 @@
-from time import sleep
-
 pessoas = []
 dados = []
+maisPesadas = []
+maisLeves = []
 
-pesadas = []
-leves = []
+maiorPeso = menorPeso = 0
 
-qtdPessoas = 0
+contador = 0
 
 while True:
-    #Pedindo o nome
-    nome = str(input('Digite o nome: '))
+    nome = str(input('Nome: '))
     pessoas.append(nome)
 
-    #pedindo o peso
-    peso = float(input('Digite o peso: '))
+    peso = float(input('Peso: '))
     pessoas.append(peso)
 
-    #Calculando quantidade de pessoas cadastradas
-    qtdPessoas += 1
-
-    #Jogando os dados das pessoas para serem analisadas:
+    #Capturando os dados
     dados.append(pessoas[:])
 
-    #Limpando os dados para não copiar sempre
+    #Zerando a lista para evitar duplicatas
     pessoas.clear()
 
-    sleep(0.5)
-    print('Cadastrado com sucesso...')
-    op = str(input('Deseja continuar cadastrando? [S/N]')).upper().strip()
+    #Verificando maior e menor peso
+    if contador == 0:
+        maiorPeso = menorPeso = peso
+    else:
+        if peso >= maiorPeso:
+            maiorPeso = peso
+        if peso <= menorPeso:
+            menorPeso = peso
 
+    #Atualizando Contador
+    contador += 1
 
-    if op in 'N':
-        print('*-' * 12)
-        sleep(0.5)
-        print('Saindo do programa...')
+    op = str(input('Continuar? [S/N]...')).strip().upper()
+
+    if op in 'nN':
         break
 
-#Verificando as pessoas MAIS e MENOS Pesadas
-maiorPeso = 0
-menorPeso = 99999
-
+#Mostrando pessoas mais pesadas
+print(f'Maior Peso = {maiorPeso}', end='Kg ')
 for nome, peso in dados:
-    if peso >= maiorPeso:
-        maiorPeso = peso
-        pesadas.append(nome)
-    elif peso <= menorPeso:
-        menorPeso = peso
-        leves.append(nome)
+    if peso == maiorPeso:
+        maisPesadas.append(nome)
+print(f' nomes = {maisPesadas}')
 
+#Mostrando pessoas mais leves
+print(f'Menor Peso = {menorPeso}', end='Kg ')
+for nome, peso in dados:
+    if peso == menorPeso:
+        maisLeves.append(nome)
+print(f' nomes = {maisLeves}')
 
-
-#Mostrando quantas pessoas foram cadastradas:
-sleep(0.5)
-print('*-' * 12)
-print(f'Foram cadastradas {qtdPessoas} pessoas')
-sleep(0.5)
-print(f'O maior peso foi: {maiorPeso}, e as pessoas são: {pesadas}')
-sleep(0.5)
-print(f'O menor peso foi: {menorPeso}, e as pessoas são: {leves}')
-sleep(0.5)
-print('Saindo do programa...')
-
-    
+print(f'Foram cadastradas: {len(dados)} pessoas')
