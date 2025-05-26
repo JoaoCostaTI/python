@@ -11,5 +11,8 @@ for c in range(7):
 valores[0].sort()
 valores[1].sort()
 
-print(f'Lista PARES = {valores[0]}')
-print(f'Lista IMPARES = {valores[1]}')
+for lista in range(len(valores)):
+    if lista == 0:
+        print(f'Lista PARES = {valores[lista]}')
+    else:
+        print(f'Lista IMPARES = {valores[lista]}')

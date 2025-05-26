@@ -1,12 +1,10 @@
-matriz = [[],[],[]]
+matriz = [[0,0,0],[0,0,0],[0,0,0]]
 
-for c in range(3):
-    for i in range(3):
-        n = int(input(f'Digite o valor da posição {c,i}: '))
-        matriz[c].insert(i, n)
-    
+for linha in range(3):
+    for coluna in range(3):
+        matriz[linha][coluna] = int(input(f'Valor da posição {linha,coluna}: '))
 
-for coluna in matriz:
-    for linha in coluna:
-        print(f'[ {linha} ] ', end="")
+for linha in range(3):
+    for coluna in range(3):
+        print(f'[{matriz[linha][coluna]:^5}]', end="")
     print()
