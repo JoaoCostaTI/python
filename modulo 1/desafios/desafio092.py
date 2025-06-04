@@ -1,4 +1,5 @@
 #Aposentar com 35 anos
+from datetime import datetime
 
 dados = {}
 n_aposentadoria = 35
@@ -6,7 +7,8 @@ n_aposentadoria = 35
 dados['nome'] = str(input('Nome: '))
 
 idade = int(input('Ano de nascimento: '))
-idadeReal = 2025 - idade
+anoAtual = datetime.now().year
+idadeReal = anoAtual - idade
 dados['idade'] = idadeReal
 
 dados['ctps'] = int(input('Carteira de trabalho (0 não tem): '))

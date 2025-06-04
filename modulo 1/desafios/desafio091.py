@@ -1,26 +1,22 @@
 from random import randint
 from time import sleep
-
-resultados = {}
-
+from operator import itemgetter
+jogo = {
+    'jogador1': randint(1,6),
+    'jogador2': randint(1,6),
+    'jogador3': randint(1,6),
+    'jogador4': randint(1,6)
+}
+ranking = {}
 
 print('Valores sorteados: ')
-for c in range(4):
-    #Gerando o numero:
-    n = randint(1,6)
-    sleep(0.7)
 
-    #Resultados
-    print(f'   O jogador {c+1} tirou: {n}')
-    resultados[f'jogador{c+1}'] = n
-
-sleep(0.7)
-print('Ranking dos jogadores: ')
-
-{k: v for k, v in sorted(resultados.items(), key=lambda item: item[1])}
-
-ranking = 1
-for jogador in sorted(resultados, key=lambda x: resultados[x], reverse=True):
-    sleep(0.7)
-    print(f'   {ranking}º Lugar: {jogador} com {resultados[jogador]}')
-    ranking+=1
+for k, v in jogo.items():
+    print(f'{k} tirou o valor {v} no dado. ')
+    sleep(0.5)
+print('=-'*30)
+print('== RANKING DOS JOGADORES ==')
+ranking = sorted(jogo.items(), key=itemgetter(1), reverse=True)
+for k, v in enumerate(ranking):
+    print(f'  -{k+1}º lugar {v[0]} com {v[1]}.')
+    sleep(0.5)

@@ -8,7 +8,7 @@ while True:
     totalGols = 0
 
     for c in range(qtdPartidas):
-        gols = int(input(f'Quantos gols na partida {c}? '))
+        gols = int(input(f'Quantos gols na partida {c+1}? '))
         totalGols += gols
         listaGols.append(gols)
 
@@ -32,23 +32,13 @@ for i, v in enumerate(jogadores):
 
 while True:
     dadosJogador = int(input('Mostrar dados de qual jogador? (999 para sair)... '))
-    
     if dadosJogador == 999:
-        print('Saindo do programa...')
         break
-
-    while dadosJogador >= len(jogadores):
-        print(f'ERRO! Não existe jogador com código {dadosJogador}! Tente novamente...')
-
-        dadosJogador = int(input('Mostrar dados de qual jogador? (999 para sair)... '))
-
-        if dadosJogador == 999:
-            break
-
-    if dadosJogador == 999:
-        print('Saindo do programa...')
-        break
-
-    print(f'--- LEVANTAMENTO DO JOGADOR {jogadores[dadosJogador]["nome"]}: ')
-    for c in range(len(jogadores[dadosJogador]['gols'])):
-        print(f'{"No":>6} jogo {c} fez {jogadores[dadosJogador]["gols"][c]} gols. ')
+    if dadosJogador >= len(jogadores):
+        print(f'ERRO, não existe jogador com código {dadosJogador}! ')
+    else:
+        print(f'Levantamento do jogador {jogadores[dadosJogador]["nome"]}: ')
+        for i, g in enumerate(jogadores[dadosJogador]['gols']):
+            print(f'   Na partida {i+1} fez {g} gols...')
+    print('-=' * 30)
+print('Volte sempre!!!')    
