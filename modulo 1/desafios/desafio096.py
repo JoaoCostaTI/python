@@ -8,4 +8,7 @@ def area (width, lenght):
 
 escopo()
 
-area(float(input('LARGURA (m): ')), float(input('COMPRIMENTO (m): ')))
+area(
+    float(input('LARGURA (m): ')), 
+    float(input('COMPRIMENTO (m): '))
+)
