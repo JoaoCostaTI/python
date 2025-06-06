@@ -31,16 +31,22 @@ while True:
     alunos.append(dados.copy())
     dados.clear()
 
-    op = str(input('Deseja continuar ? [S/N]' )).upper().strip()
+    while True:
+        op = str(input('Deseja continuar? [S/N] ')).strip().upper()
 
-    if op in 'N':
+        if op in ["S", "N"]:
+            break
+        else:
+            print('Opção inválida. Digite apenas S ou N. ')
+    if op == 'N':
         print('Saindo do cadastro de alunos...')
         break
+
 
 escopoBoletim()
 for i, v in enumerate(alunos):
     print(f'{i:<5}{v["nome"]:<15}{v["media"]}')
-    
+
 while True:
     dadosAluno = int(input('Mostrar dados de qual aluno? (999) para sair: '))
 
@@ -50,4 +56,6 @@ while True:
     if dadosAluno >= len(alunos):
         print(f'Não existe aluno com o código {dadosAluno}')
     else:
+        aluno = alunos[dadosAluno]
+        print(f'Notas de {aluno["nome"]}: {aluno["notas"]}')
         
