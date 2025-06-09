@@ -1,4 +1,9 @@
 def fatorial(n, show=False):
+    """
+        -> Calcula o fatorial de um numero
+        :param n: O numero a ser calculado.
+        :param show: (Opcional) Mostrar ou não a conta.
+    """
     print('-' * 30)
     f = 1
 
@@ -7,7 +12,7 @@ def fatorial(n, show=False):
             f *= c
             while c > 1:
                 print(f'{c} X ', end="")
-                continue
+                break
             if c == 1:
                 print(f'{c}', end="")
         print(f' = {f}')
@@ -15,6 +20,5 @@ def fatorial(n, show=False):
         for c in range(n, 0, -1):
             f *= c
         print(f)
-
-
-fatorial(5, True)
+help(fatorial)
+fatorial(5, False)
