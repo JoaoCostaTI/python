@@ -20,5 +20,5 @@ def fatorial(n, show=False):
         for c in range(n, 0, -1):
             f *= c
         print(f)
-help(fatorial)
-fatorial(5, False)
+
+fatorial(5, True)

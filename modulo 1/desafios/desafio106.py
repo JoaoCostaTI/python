@@ -7,20 +7,22 @@ while True:
 
     sleep(1)
 
-    op = str(input('Função ou Biblioteca > '))
+    op = str(input('Função ou Biblioteca > ')).strip().lower()
 
     sleep(1)
 
-    print('\033[32m' + '~' * 45)
-    print(f'Acessando o manual do comando {op}'.center(45))
-    print('~' * 45 + '\033[m')
+    if op == 'fim':
+        print('~' * 30)
+        print('Até Logo!'.center(30))
+        print('~' * 30)
+        break
+    else: 
+        print('\033[32m' + '~' * 45)
+        print(f'Acessando o manual do comando {op}'.center(45))
+        print('~' * 45 + '\033[m')
 
-    sleep(1)
-
-    ajuda = help(op)
-
-    sleep(1)
-
-    print(ajuda)
+        sleep(1)
+        help(op)
+   
 
     
