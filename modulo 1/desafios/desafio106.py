@@ -12,9 +12,11 @@ while True:
     sleep(1)
 
     if op == 'fim':
-        print('~' * 30)
-        print('Até Logo!'.center(30))
-        print('~' * 30)
+        msgFinal = 'Até logo!'
+        largura = len(msgFinal) + 4
+        print('~' * largura)
+        print(f'{msgFinal.center(largura)}')
+        print('~' * largura)
         break
     else: 
         print('\033[32m' + '~' * 45)
