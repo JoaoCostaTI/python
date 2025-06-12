@@ -1,4 +1,7 @@
 def notas(*listaNotas, sti=False):
+    """
+    -> Aqui jas uma função basica para cadastrar notas, serve bem para análise de dados e estruturação com base em quantidade N de informações inseridas. 
+    """
     dicionarioNotas = {}
 
     total = 0
@@ -27,6 +30,6 @@ def notas(*listaNotas, sti=False):
 
     return dicionarioNotas
 
-resp = notas(3.5, 6.5, 2, 7, 4, sti=True)
+resp = notas(3.5, 6.5, 2, 7, 4,2,2,4,6,8,6,5,4,2)
 
 print(resp)

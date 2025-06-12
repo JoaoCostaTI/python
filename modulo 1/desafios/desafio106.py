@@ -1,30 +1,20 @@
-from time import sleep
+def ajuda(com):
+     help(com)
+
+def titulo(msg, cor=0):
+    tam = len(msg) + 4 
+    print('~' * tam)
+    print(msg.center(tam))
+    print('~' * tam)
+
+comando = ''
 
 while True:
-    print('\033[32m' + '~' * 30)
-    print(f'{"Sistema de Ajuda PyHelp".center(30)}')
-    print('~' * 30 + '\033[m')
-
-    sleep(1)
-
-    op = str(input('Função ou Biblioteca > ')).strip().lower()
-
-    sleep(1)
-
-    if op == 'fim':
-        msgFinal = 'Até logo!'
-        largura = len(msgFinal) + 4
-        print('~' * largura)
-        print(f'{msgFinal.center(largura)}')
-        print('~' * largura)
+    titulo('SISTEMA DE AJUDA PyHELP')
+    comando = str(input('Função ou Biblioteca >: '))
+    if comando.upper() == 'FIM':
         break
-    else: 
-        print('\033[32m' + '~' * 45)
-        print(f'Acessando o manual do comando {op}'.center(45))
-        print('~' * 45 + '\033[m')
+    else:
+        ajuda(comando)
 
-        sleep(1)
-        help(op)
-   
-
-    
+titulo('ATÉ LOGO')

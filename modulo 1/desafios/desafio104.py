@@ -1,11 +1,18 @@
-def leiaInt(nInterno):
-    valor = input(nInterno)
-    
-    while not valor.isnumeric():
-        print('ERRO, Digite um numero válido!')
-        valor = input(nInterno)
-    
-    return int(valor)
+def leiaInt(msg):
+    ok = False
+    valor = 0
 
-nGlobal = leiaInt('Digite um numero: ')
-print(f'Você acabou de digitar o numero {nGlobal}')
+    while True:
+        num = str(input(msg))
+
+        if num.isnumeric():
+            valor = int(num)
+            ok = True
+        else:
+            print('ERRO! Digite um valor válido! ')
+        if ok:
+            break
+    return valor
+
+n = leiaInt('Digite um numero: ')
+print(f'Você digitou o numero {n}')
