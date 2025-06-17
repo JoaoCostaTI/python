@@ -1,4 +1,4 @@
-from desafio111.utilidadescev import moeda
+from utilidadescev import moeda
 
 p = float (input('Digite o preço: R$'))
 
