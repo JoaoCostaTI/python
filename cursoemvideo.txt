@@ -1,0 +1,4 @@
+Joao; 41
+Pedro; 45
+Marcos; 78
+Costa; 118
